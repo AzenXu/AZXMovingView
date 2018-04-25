@@ -27,16 +27,11 @@
 + (instancetype)layoutWithItemSize :(CGSize)size minimumLineSpacing :(CGFloat)spacing alignmentType: (AZXMovingViewAlignmentType)type
 {
     AZXMovingViewLayout *layout = [[AZXMovingViewLayout alloc] init];
-    //  滚动方向
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    //  cell 尺寸
     layout.itemSize = size;
-    //  水平居中显示
     layout.minimumInteritemSpacing = MAXFLOAT;
-    //  图片间距
     layout.minimumLineSpacing = spacing;
     layout.alignmentType = type;
-    
     return layout;
 }
 
@@ -49,25 +44,11 @@
 #pragma mark - over write functions
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    //  调用父类方法获得流水排布 attributes 计算值数组
     NSArray *array = [super layoutAttributesForElementsInRect:rect];
-    //  找到 collection 中心线
-    CGFloat centerPointX = self.collectionView.frame.size.width * 0.5;
-    //  遍历 cell 根据距中心线距离调整尺寸&透明度
-    for (int i = 0 ; i < array.count; i++) {
-        UICollectionViewLayoutAttributes *attribute = array[i];
-        CGFloat itemPointX = attribute.center.x - self.collectionView.contentOffset.x;
-        CGFloat distance = itemPointX - centerPointX;
-        //  调整缩放比例
-        if ([self.movingView respondsToSelector:@selector(scaleChangeValue)]) {
-            CGFloat scale = (1 - ABS(distance / [UIScreen mainScreen].bounds.size.width * self.movingView.scaleChangeValue)) ;
-            //        CGFloat scale = ABS();
-            attribute.transform = CGAffineTransformMakeScale(scale, scale);
-        }
-        //  调整 aplha 变化比例
-        if ([self.movingView respondsToSelector:@selector(alphaChangeValue)]) {
-            attribute.alpha = 1 - self.movingView.alphaChangeValue * ABS(distance / [UIScreen mainScreen].bounds.size.width);
-        }
+    //  若居中对齐，则根据配置变更透明度、缩放
+    if (self.alignmentType == AZXMovingViewAlignmentTypeCenter) {
+        CGFloat centerPointX = self.collectionView.frame.size.width * 0.5;
+        [self _changeAlphaAndScalForAttributes:array defaultOffset:centerPointX];
     }
     return array;
 }
@@ -157,6 +138,26 @@
     CGRect rect = CGRectMake(proposedContentOffset.x, proposedContentOffset.y, self.movingView.bounds.size.width, self.movingView.bounds.size.height);
     NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
     return attributes;
+}
+
+- (void)_changeAlphaAndScalForAttributes:(NSArray *)attrbutes defaultOffset:(CGFloat)defaultOffset
+{
+    //  遍历 cell 根据距中心线距离调整尺寸&透明度
+    for (int i = 0 ; i < attrbutes.count; i++) {
+        UICollectionViewLayoutAttributes *attribute = attrbutes[i];
+        CGFloat itemPointX = attribute.center.x - self.collectionView.contentOffset.x;
+        CGFloat distance = itemPointX - defaultOffset;
+        //  调整缩放比例
+        if ([self.movingView respondsToSelector:@selector(scaleChangeValue)]) {
+            CGFloat scale = (1 - ABS(distance / [UIScreen mainScreen].bounds.size.width * self.movingView.scaleChangeValue)) ;
+            //        CGFloat scale = ABS();
+            attribute.transform = CGAffineTransformMakeScale(scale, scale);
+        }
+        //  调整 aplha 变化比例
+        if ([self.movingView respondsToSelector:@selector(alphaChangeValue)]) {
+            attribute.alpha = 1 - self.movingView.alphaChangeValue * ABS(distance / [UIScreen mainScreen].bounds.size.width);
+        }
+    }
 }
 
 - (void)_moveFirtItemToCenter
