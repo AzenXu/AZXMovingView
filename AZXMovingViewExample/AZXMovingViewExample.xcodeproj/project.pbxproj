@@ -18,6 +18,7 @@
 		B5CF3A7A1B74964700C15B0B /* AZXMovingViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CF3A761B74964700C15B0B /* AZXMovingViewLayout.m */; };
 		B5CF3A7B1B74964700C15B0B /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CF3A781B74964700C15B0B /* CollectionViewCell.m */; };
 		B5F99C502090454900283F22 /* AZXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F99C4F2090454900283F22 /* AZXBannerView.m */; };
+		B5F99C53209067EE00283F22 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F99C52209067EE00283F22 /* BannerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		B5CF3A781B74964700C15B0B /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		B5F99C4E2090454900283F22 /* AZXBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZXBannerView.h; sourceTree = "<group>"; };
 		B5F99C4F2090454900283F22 /* AZXBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AZXBannerView.m; sourceTree = "<group>"; };
+		B5F99C51209067EE00283F22 /* BannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
+		B5F99C52209067EE00283F22 /* BannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				B5CF3A511B74962500C15B0B /* AppDelegate.m */,
 				B5CF3A531B74962500C15B0B /* ViewController.h */,
 				B5CF3A541B74962500C15B0B /* ViewController.m */,
+				B5F99C51209067EE00283F22 /* BannerViewController.h */,
+				B5F99C52209067EE00283F22 /* BannerViewController.m */,
 				B5CF3A561B74962500C15B0B /* Main.storyboard */,
 				B5CF3A591B74962500C15B0B /* Images.xcassets */,
 				B5CF3A5B1B74962500C15B0B /* LaunchScreen.xib */,
@@ -263,6 +268,7 @@
 				B5CF3A521B74962500C15B0B /* AppDelegate.m in Sources */,
 				B5F99C502090454900283F22 /* AZXBannerView.m in Sources */,
 				B5CF3A4F1B74962500C15B0B /* main.m in Sources */,
+				B5F99C53209067EE00283F22 /* BannerViewController.m in Sources */,
 				B5CF3A7A1B74964700C15B0B /* AZXMovingViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

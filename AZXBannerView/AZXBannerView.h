@@ -10,4 +10,9 @@
 
 @interface AZXBannerView : UIView
 
+@property (nonatomic, assign, readonly) NSInteger currentPageIndex;
+@property (nonatomic, strong) id<UICollectionViewDelegate> delegate;
+@property (nonatomic, strong) id<UICollectionViewDataSource> dataSource;
+@property (nonatomic, strong, readonly) UICollectionView *collectionView;
+
 @end

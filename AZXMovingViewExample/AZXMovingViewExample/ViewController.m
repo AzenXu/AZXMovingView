@@ -9,12 +9,12 @@
 #import "ViewController.h"
 #import "AZXMovingView.h"
 #import "AZXMovingViewLayout.h"
-#import "AZXBannerView.h"
+#import "BannerViewController.h"
 
 @interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) AZXBannerView *bannerView;
+@property (nonatomic, strong) BannerViewController *bannerVC;
 
 @end
 
@@ -46,10 +46,6 @@
     movingView.imageMargin = 10;
     
     [self.view addSubview:self.collectionView];
-    
-    //  banner view
-    self.bannerView.frame = CGRectMake(0, 400, 375, 200);
-    [self.view addSubview:self.bannerView];
 }
 
 - (UICollectionView *)collectionView
@@ -80,13 +76,21 @@
     return 10;
 }
 
-- (AZXBannerView *)bannerView
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if (!_bannerView) {
-        _bannerView = [[AZXBannerView alloc] init];
-        _bannerView.backgroundColor = [UIColor greenColor];
+    [super touchesBegan:touches withEvent:event];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self presentViewController:self.bannerVC animated:YES completion:nil];        
+    });
+}
+
+- (BannerViewController *)bannerVC
+{
+    if (!_bannerVC) {
+        _bannerVC = [BannerViewController new];
     }
-    return _bannerView;
+    return _bannerVC;
 }
 
 @end
