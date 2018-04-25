@@ -10,7 +10,7 @@
 
 @protocol AZXMovingDelegate <UICollectionViewDelegate>
 
-- (void)xxx;
+//- (void)xxx;
 
 @end
 

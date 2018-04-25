@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, AZXMovingViewAlignmentType) {
+    AZXMovingViewAlignmentTypeLeft,
+    AZXMovingViewAlignmentTypeCenter
+};
+
 @interface AZXMovingViewLayout : UICollectionViewFlowLayout
 
 + (instancetype)layoutWithItemSize :(CGSize)size minimumLineSpacing :(CGFloat)spacing;
++ (instancetype)layoutWithItemSize :(CGSize)size minimumLineSpacing :(CGFloat)spacing alignmentType: (AZXMovingViewAlignmentType)type;
 
 @end

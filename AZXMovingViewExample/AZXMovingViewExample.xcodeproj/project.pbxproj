@@ -17,6 +17,7 @@
 		B5CF3A791B74964700C15B0B /* AZXMovingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CF3A741B74964700C15B0B /* AZXMovingView.m */; };
 		B5CF3A7A1B74964700C15B0B /* AZXMovingViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CF3A761B74964700C15B0B /* AZXMovingViewLayout.m */; };
 		B5CF3A7B1B74964700C15B0B /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CF3A781B74964700C15B0B /* CollectionViewCell.m */; };
+		B5F99C502090454900283F22 /* AZXBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F99C4F2090454900283F22 /* AZXBannerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		B5CF3A761B74964700C15B0B /* AZXMovingViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZXMovingViewLayout.m; sourceTree = "<group>"; };
 		B5CF3A771B74964700C15B0B /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		B5CF3A781B74964700C15B0B /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		B5F99C4E2090454900283F22 /* AZXBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZXBannerView.h; sourceTree = "<group>"; };
+		B5F99C4F2090454900283F22 /* AZXBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AZXBannerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,7 @@
 		B5CF3A401B74962500C15B0B = {
 			isa = PBXGroup;
 			children = (
+				B5F99C4D2090453700283F22 /* AZXBannerView */,
 				B5CF3A4B1B74962500C15B0B /* AZXMovingViewExample */,
 				B5CF3A721B74964700C15B0B /* AZXMovingView */,
 				B5CF3A651B74962500C15B0B /* AZXMovingViewExampleTests */,
@@ -141,6 +145,16 @@
 			);
 			name = AZXMovingView;
 			path = ../AZXMovingView;
+			sourceTree = "<group>";
+		};
+		B5F99C4D2090453700283F22 /* AZXBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				B5F99C4E2090454900283F22 /* AZXBannerView.h */,
+				B5F99C4F2090454900283F22 /* AZXBannerView.m */,
+			);
+			name = AZXBannerView;
+			path = ../AZXBannerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +261,7 @@
 				B5CF3A791B74964700C15B0B /* AZXMovingView.m in Sources */,
 				B5CF3A551B74962500C15B0B /* ViewController.m in Sources */,
 				B5CF3A521B74962500C15B0B /* AppDelegate.m in Sources */,
+				B5F99C502090454900283F22 /* AZXBannerView.m in Sources */,
 				B5CF3A4F1B74962500C15B0B /* main.m in Sources */,
 				B5CF3A7A1B74964700C15B0B /* AZXMovingViewLayout.m in Sources */,
 			);
@@ -443,6 +458,7 @@
 				B5CF3A6E1B74962500C15B0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5CF3A6F1B74962500C15B0B /* Build configuration list for PBXNativeTarget "AZXMovingViewExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +467,7 @@
 				B5CF3A711B74962500C15B0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

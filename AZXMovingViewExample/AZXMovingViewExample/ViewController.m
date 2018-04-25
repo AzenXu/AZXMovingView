@@ -8,8 +8,13 @@
 
 #import "ViewController.h"
 #import "AZXMovingView.h"
+#import "AZXMovingViewLayout.h"
+#import "AZXBannerView.h"
 
-@interface ViewController ()
+@interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) AZXBannerView *bannerView;
 
 @end
 
@@ -39,11 +44,49 @@
     movingView.imageSize = image.size;
     movingView.scaleChangeValue = 1;
     movingView.imageMargin = 10;
+    
+    [self.view addSubview:self.collectionView];
+    
+    //  banner view
+    self.bannerView.frame = CGRectMake(0, 400, 375, 200);
+    [self.view addSubview:self.bannerView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UICollectionView *)collectionView
+{
+    if (!_collectionView) {
+        _collectionView = [[UICollectionView alloc]  initWithFrame:CGRectMake(0, 300, [UIScreen mainScreen].bounds.size.width, 100) collectionViewLayout:[AZXMovingViewLayout layoutWithItemSize:CGSizeMake(100, 100) minimumLineSpacing:10 alignmentType:(AZXMovingViewAlignmentTypeCenter)]];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"test"];
+    }
+    return _collectionView;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [_collectionView dequeueReusableCellWithReuseIdentifier:@"test" forIndexPath:indexPath];
+    cell.contentView.backgroundColor = [UIColor redColor];
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (AZXBannerView *)bannerView
+{
+    if (!_bannerView) {
+        _bannerView = [[AZXBannerView alloc] init];
+        _bannerView.backgroundColor = [UIColor greenColor];
+    }
+    return _bannerView;
 }
 
 @end
